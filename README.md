@@ -103,6 +103,14 @@ while ($true) {
 
 This script starts new instances of PowerShell in an infinite loop,leading to a rapid increase in the number of processes.
 
+```powershell
+foreach ($i in 0..1) {
+    Start-Process -FilePath powershell -ArgumentList '-File', $MyInvocation.MyCommand.Path 
+}
+```
+
+Each instance of the script starts two new PowerShell processes that run the same script, and each of those starts two more, and so on.
+
 
 ## Latest Updates
 
